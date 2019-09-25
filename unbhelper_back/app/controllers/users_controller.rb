@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: %i[show update remove]
-    before_action :valid_token!, only: [:search :update]
+    before_action :valid_token!, only: [:search, :update]
 
     # GET
     # Shows all users
