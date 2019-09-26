@@ -27,7 +27,7 @@ export default class Subjects extends Component {
       <div className="Subjects">
         {
           this.state.subjects.map((subjectData) => 
-            <SubjectCard key={subjectData.id} title={subjectData.name} subtitle={subjectData.teacher} />
+            <SubjectCard key={subjectData.id} id={subjectData.id} name={subjectData.name} dep={subjectData.teacher} />
           )
         }
       </div>
