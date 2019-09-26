@@ -18,12 +18,10 @@ class SubjectCard extends React.Component {
 
   render(){
     return (
-      <div className="subjectCard">
-        <div className="container" onClick={this.enterPage}>
+      <div className="subjectCard" onClick={this.enterPage}>
           <span className="dep"> {this.props.dep} </span>
           <br/>
           <span className="name"> {this.props.name} </span>
-        </div>
       </div>
     )
   }

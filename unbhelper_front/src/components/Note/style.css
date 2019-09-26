@@ -1,18 +1,33 @@
 body {
   font-family: 'Roboto', sans-serif;
+  
 }
 
 .noteCard {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  border-radius: 8px;
-  background: rgb(226, 226, 226);
+  border-radius: 6px;
+  background: rgb(250, 250, 250);
   padding: 16px;
   position: relative;
+  min-height: 120px;
+  max-width: 800px;
+
+  margin: 16px auto;
 }
 
-.like {
+.bottomBar {
   position: absolute;
-  right: 20px;
+  bottom: 10px;
+}
+
+.likes {
+  right: 16px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.fa {
   cursor: pointer;
+  color: rgb(233, 57, 95);
 }

@@ -4,8 +4,7 @@
 }
 
 .header {
-  font-family: 'UnB Pro';
-  height: 120px;
+  min-height: 120px;
   padding: 20px 0px 20px 20px;
   background: rgb(226, 226, 226);
 }
@@ -17,6 +16,8 @@
 }
 
 .notesTitle {
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
   position: relative;
   top: 18px;
   left: 40px;
@@ -25,6 +26,7 @@
 }
 
 .mainTitle {
+  font-family: 'UnB Pro';
   position: relative;
   left: 20px;
   font-size: 48px;

@@ -10,7 +10,8 @@ export default class Notes extends React.Component {
     super(props)
 
     this.state = {
-      notes: []
+      notes: [],
+      liked: []
     }
   }
 
@@ -21,7 +22,9 @@ export default class Notes extends React.Component {
       .catch(error => console.log(error.message));
   }
 
-  likeNote() {}
+  likePost = (id) => {
+    console.log("Liked post with id=" + id);
+  }
 
   render(){
     return (
@@ -30,7 +33,7 @@ export default class Notes extends React.Component {
         <div className="notes">
           {
             this.state.notes.map((noteData) => 
-              <Note key={noteData.id} message={noteData.content} author={noteData.name} likes={noteData.likes}/>
+              <Note key={noteData.id} id={noteData.id} message={noteData.content} author={noteData.name} likes={noteData.likes} likeHandler={this.likePost} liked={false}/>
             )
           }
         </div>
