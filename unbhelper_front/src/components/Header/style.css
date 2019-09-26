@@ -4,9 +4,10 @@
 }
 
 .header {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
   min-height: 120px;
   padding: 20px 0px 20px 20px;
-  background: rgb(226, 226, 226);
+  background: #ced1d3;
 }
 
 .logo {

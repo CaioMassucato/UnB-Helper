@@ -26,6 +26,10 @@ export default class Notes extends React.Component {
     console.log("Liked post with id=" + id);
   }
 
+  addPost = (content) => {
+    
+  }
+
   render(){
     return (
       <div>
@@ -36,6 +40,10 @@ export default class Notes extends React.Component {
               <Note key={noteData.id} id={noteData.id} message={noteData.content} author={noteData.name} likes={noteData.likes} likeHandler={this.likePost} liked={false}/>
             )
           }
+
+        <button className="add-button">
+          <div className="fa fa-plus"/>
+        </button>
         </div>
       </div>
     )

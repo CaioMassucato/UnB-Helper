@@ -1,7 +1,21 @@
 .notes {
   padding: 20px 20px;
-  
-  text-align: center;
+}
 
-  /* justify-items: center; */
+.add-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 2em;
+  text-align: center;
+  background: linear-gradient( #83e8ba, #70e0ad);
+  border: none;
+  width: 54px;
+  height: 54px;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1)
+}
+
+.fa-plus {
+  color: #efefef;
+  margin: auto;
 }

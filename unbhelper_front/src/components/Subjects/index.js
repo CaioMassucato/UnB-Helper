@@ -12,14 +12,11 @@ export default class Subjects extends Component {
   }
 
   componentDidMount() {
-    /* fetch('http://localhost:3000/subjects') // Mudar isso pra não ter problema de CORS
+    fetch('http://localhost:3010/subjects') // Mudar isso pra não ter problema de CORS
       .then(response => response.json())
       .then(data => this.setState({subjects : data}))
-      .catch(error => console.log(error.message)); */
+      .catch(error => console.log(error.message));
 
-    // debugging sem api
-    const localSubjects = require('../../assets/subjects.json');
-    this.setState({subjects : localSubjects});
   }
 
   render(){
