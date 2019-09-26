@@ -8,7 +8,7 @@ body {
   border-radius: 8px;
   background: #d8d8d8;
   padding: 16px;
-  cursor: pointer;
+  
 }
 
 .subjectCard:hover {
@@ -19,6 +19,7 @@ body {
 .container {
   font-weight: 900;
   text-align: left;
+  cursor: pointer; /* Deixa o cursor bonitinho e permite que o onClick funcione no mobile! */
 }
 
 .name {

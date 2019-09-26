@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './style.css';
-import logo from '../../assets/logo.svg';
 
 export default class Header extends Component {
   render(){
     return(
       <div className="header">
-        <img src={logo} alt="Helper Logo" className="logo"/>
-        <span className="mainTitle">UnB Helper</span>
+        {/* Mostra a imagem apenas se for definida */}
+        {this.props.img != null && <img src={this.props.img} alt="Helper Logo" className="logo"/>}
+        <span className={this.props.type}>{this.props.title}</span>
       </div>
     )
   }

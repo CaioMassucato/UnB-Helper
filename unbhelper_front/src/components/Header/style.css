@@ -4,6 +4,7 @@
 }
 
 .header {
+  font-family: 'UnB Pro';
   height: 120px;
   padding: 20px 0px 20px 20px;
   background: rgb(226, 226, 226);
@@ -15,10 +16,17 @@
   top: -16px;
 }
 
+.notesTitle {
+  position: relative;
+  top: 18px;
+  left: 40px;
+  font-size: 30px;
+  color: "black" !important;
+}
+
 .mainTitle {
-  font-family: 'UnB Pro';
-  font-size: 48px;
-  color: #104177;
   position: relative;
   left: 20px;
+  font-size: 48px;
+  color: #104177;
 }

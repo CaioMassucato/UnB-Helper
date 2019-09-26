@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/:id" component={Notes}/>
+        <Route path="/:id" component={Notes}/> {/* Rota dinâmica para as páginas de notas */}
         <Route path="/" exact component={Home} />
       </Switch>
     </Router>

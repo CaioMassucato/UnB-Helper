@@ -10,7 +10,10 @@ class SubjectCard extends React.Component {
   }
 
   enterPage = () => {
-    this.props.history.push('/' + this.props.id);
+    this.props.history.push({
+      pathname: '/' + this.props.id,
+      state: {subjectName: this.props.name}
+    });
   }
 
   render(){
