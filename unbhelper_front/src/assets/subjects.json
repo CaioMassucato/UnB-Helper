@@ -1,0 +1,12 @@
+[
+  {
+    "id" : 120456,
+    "name" : "Introdução à Álgebra Linear",
+    "teacher": "mat"
+  },
+  {
+    "id" : 126896,
+    "name" : "Algorítimos de Programação de Computadores",
+    "teacher": "cic"
+  }
+]
