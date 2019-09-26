@@ -10,6 +10,7 @@ export default class Notes extends React.Component {
     super(props)
 
     this.state = {
+      name: null,
       notes: [],
       liked: []
     }
@@ -20,6 +21,8 @@ export default class Notes extends React.Component {
       .then(response => response.json())
       .then(data => this.setState({notes : data}))
       .catch(error => console.log(error.message));
+
+    this.setSubjectName();    
   }
 
   likePost = (id) => {
@@ -30,10 +33,22 @@ export default class Notes extends React.Component {
     
   }
 
+  setSubjectName = () => {
+    fetch('http://localhost:3010/subjects/' + this.props.match.params.id)
+    .then(response => response.json())
+    .then(data => this.setState({name : data.name }))
+    .catch(error => console.warn(error));
+
+    if(this.state.name == null){
+      console.log("Page not Found");
+    }
+  }
+
   render(){
+
     return (
       <div>
-        <Header title={this.props.location.state.subjectName} type="notesTitle"/>
+        <Header title={this.state.name} type="notesTitle"/>
         <div className="notes">
           {
             this.state.notes.map((noteData) => 
