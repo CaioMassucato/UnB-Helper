@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'UnB Pro';
+  src: url('../../assets/fonts/UnB Pro_Bold.otf');
+}
+
+.header {
+  height: 120px;
+  padding: 20px 0px 20px 20px;
+  background: rgb(226, 226, 226);
+}
+
+.logo {
+  position: relative;
+  width: 48px;
+  top: -16px;
+}
+
+.mainTitle {
+  font-family: 'UnB Pro';
+  font-size: 48px;
+  color: #104177;
+  position: relative;
+  left: 20px;
+}
