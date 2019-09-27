@@ -17,7 +17,7 @@ export default class Subjects extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/subjects') 
+    fetch('http://localhost:3010/subjects') 
       .then(response => response.json())
       .then(data => this.setState({subjects : data}))
       .catch(error => console.log(error.message));
