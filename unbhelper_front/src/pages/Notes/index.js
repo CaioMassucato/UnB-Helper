@@ -12,12 +12,17 @@ export default class Notes extends React.Component {
     this.state = {
       name: null,
       notes: [],
-      liked: []
+      liked: [],
+      filter: '',
     }
   }
 
+  updateFilter(event) {
+    this.setState({filter: event.target.value.substr(0,40)});
+  }
+
   componentDidMount() {
-    fetch('http://localhost:3000/posts/' + this.props.match.params.id) // Mudar isso pra não ter problema de CORS
+    fetch('http://localhost:3000/subjects/' + this.props.match.params.id + '/posts') // Mudar isso pra não ter problema de CORS
       .then(response => response.json())
       .then(data => this.setState({notes : data}))
       .catch(error => console.log(error.message));
@@ -34,7 +39,7 @@ export default class Notes extends React.Component {
   }
 
   setSubjectName = () => {
-    fetch('http://localhost:3010/subjects/' + this.props.match.params.id)
+    fetch('http://localhost:3000/subjects/' + this.props.match.params.id)
     .then(response => response.json())
     .then(data => this.setState({name : data.name }))
     .catch(error => console.warn(error));
@@ -45,10 +50,16 @@ export default class Notes extends React.Component {
   }
 
   render(){
+    let filteredNotes = this.state.notes.filter(
+      (note) => {
+        return note.content.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").indexOf(this.state.filter.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) !== -1;
+      }
+    );
 
     return (
       <div>
         <Header title={this.state.name} type="notesTitle"/>
+        <input className="filter" type="text" value={this.state.filter} onChange={this.updateFilter.bind(this)}/>
         <div className="notes">
           {
             this.state.notes.map((noteData) => 

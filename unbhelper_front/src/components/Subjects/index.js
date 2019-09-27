@@ -8,11 +8,16 @@ export default class Subjects extends Component {
 
     this.state = {
       subjects : [],
+      filter: '',
     };
   }
 
+  updateFilter(event) {
+    this.setState({filter: event.target.value.substr(0,40)});
+  }
+
   componentDidMount() {
-    fetch('http://localhost:3010/subjects') // Mudar isso pra não ter problema de CORS
+    fetch('http://localhost:3000/subjects') 
       .then(response => response.json())
       .then(data => this.setState({subjects : data}))
       .catch(error => console.log(error.message));
@@ -20,13 +25,22 @@ export default class Subjects extends Component {
   }
 
   render(){
+    let filteredSubjects = this.state.subjects.filter(
+      (subject) => {
+        return subject.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").indexOf(this.state.filter.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) !== -1;
+      }
+    );
+
     return (
-      <div className="Subjects">
-        {
-          this.state.subjects.map((subjectData) => 
-            <SubjectCard key={subjectData.id} id={subjectData.id} name={subjectData.name} dep={subjectData.teacher} />
-          )
-        }
+      <div>
+        <input className="filter" type="text" value={this.state.filter} onChange={this.updateFilter.bind(this)}/>
+        <div className="Subjects">
+          {
+            filteredSubjects.map((subjectData) => 
+              <SubjectCard key={subjectData.id} id={subjectData.id} name={subjectData.name} dep={subjectData.teacher} />
+            )
+          }
+        </div>
       </div>
     )
   }

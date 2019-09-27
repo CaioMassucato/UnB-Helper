@@ -3,5 +3,13 @@
   display: grid;
   grid-gap: 8px;
   grid-template-columns: repeat(auto-fit, 320px);
-  grid-template-rows: repeat(5, 120px);
+  grid-template-rows: repeat(6, 120px);
+}
+
+.filter {
+  margin: 20px;
+  margin-bottom: auto;
+  background-color: rgb(243, 243, 243);
+  border-radius: 8px;
+  border: none;
 }
