@@ -21,13 +21,16 @@ export default class Subjects extends Component {
 
   render(){
     return (
-      <div className="Subjects">
-        {
-          this.state.subjects.map((subjectData) => 
-            <SubjectCard key={subjectData.id} id={subjectData.id} name={subjectData.name} dep={subjectData.teacher} />
-          )
-        }
-      </div>
+      <>
+        <div className="Subjects">
+          {
+            this.state.subjects.map((subjectData) => 
+              <SubjectCard key={subjectData.id} id={subjectData.id} name={subjectData.name} dep={subjectData.teacher} />
+              )
+
+          }
+        </div>
+      </>
     )
   }
 }

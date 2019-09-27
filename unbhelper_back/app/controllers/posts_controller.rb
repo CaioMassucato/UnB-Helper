@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     if @post.save
       render json: @post ,status: :created
     else
-      render json: @post.erros, status: :unprocessable_entity
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 
@@ -41,6 +41,8 @@ class PostsController < ApplicationController
   def post_by_subject
     @subject = Subject.find(params[:id])
     @post = @subject.posts
+
+    render json: @post
   end
 
   private
@@ -50,6 +52,6 @@ class PostsController < ApplicationController
 
 
     def post_params
-        params.require(:post).permit(:name,:content,:likes)
+        params.require(:post).permit(:name,:content,:subject_id)
     end
 end
