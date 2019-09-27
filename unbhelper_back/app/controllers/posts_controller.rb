@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :set_post, only: [:show, :update, :destroy]
+    before_action :set_post, only: [:update, :destroy]
 
   def create
     @post = Post.new(post_params)
@@ -36,6 +36,11 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     render json: {status: 'SUCCESS', message:'Deleted post', data:@post},status: :ok
+  end
+
+  def post_by_subject
+    @subject = Subject.find(params[:id])
+    @post = @subject.posts
   end
 
   private

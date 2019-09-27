@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   #Rotas para Posts
   get "/posts" => "posts#index"
   get "/posts/:id" => "posts#show"
+  get "/subjects/:id/posts" => "posts#post_by_subject"
 
   post "/posts" => "posts#create"
 

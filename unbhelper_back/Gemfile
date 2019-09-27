@@ -45,3 +45,5 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'bcrypt'
 
 gem 'jwt'
+
+gem 'rack-cors'
