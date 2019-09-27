@@ -2,16 +2,22 @@ import React from "react";
 import "./style.css";
 
 export default class Note extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
-    this.state = {liked:this.props.liked};
+    this.state = {
+      liked: this.props.liked,
+      likes: this.props.likes
+    };
   }
 
   onLike = () => {
-    this.setState({liked:!this.state.liked})
+    this.setState({ 
+      liked: !this.state.liked,
+      likes: this.state.likes += this.state.liked ? -1 : 1,
+    });
     this.props.likeHandler(this.props.id);
-  }
+  };
 
   render() {
     const icon = this.state.liked ? "fa-heart" : "fa-heart-o";
@@ -23,9 +29,9 @@ export default class Note extends React.Component {
           <span className="author">{this.props.author}</span>
         </div>
         <div className="likes">
-            <span> {this.props.likes} </span>
-            <div className={"fa " + icon} onClick={this.onLike}></div>
-          </div>
+          <span> {this.state.likes} </span>
+          <div className={"fa " + icon} onClick={this.onLike}></div>
+        </div>
       </div>
     );
   }
