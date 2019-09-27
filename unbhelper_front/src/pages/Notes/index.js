@@ -17,10 +17,6 @@ export default class Notes extends React.Component {
     }
   }
 
-  updateFilter(event) {
-    this.setState({filter: event.target.value.substr(0,40)});
-  }
-
   componentDidMount() {
     fetch('http://localhost:3000/subjects/' + this.props.match.params.id + '/posts') // Mudar isso pra não ter problema de CORS
       .then(response => response.json())
@@ -49,6 +45,10 @@ export default class Notes extends React.Component {
     }
   }
 
+  updateFilter(event) {
+    this.setState({filter: event.target.value.substr(0,40)});
+  }
+
   render(){
     let filteredNotes = this.state.notes.filter(
       (note) => {
@@ -62,11 +62,10 @@ export default class Notes extends React.Component {
         <input className="filter" type="text" value={this.state.filter} onChange={this.updateFilter.bind(this)}/>
         <div className="notes">
           {
-            this.state.notes.map((noteData) => 
+            filteredNotes.map((noteData) => 
               <Note key={noteData.id} id={noteData.id} message={noteData.content} author={noteData.name} likes={noteData.likes} likeHandler={this.likePost} liked={false}/>
             )
           }
-
         <button className="add-button">
           <div className="fa fa-plus"/>
         </button>

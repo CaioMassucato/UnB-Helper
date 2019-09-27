@@ -41,6 +41,7 @@ class PostsController < ApplicationController
   def post_by_subject
     @subject = Subject.find(params[:id])
     @post = @subject.posts
+    render json: @post
   end
 
   private
